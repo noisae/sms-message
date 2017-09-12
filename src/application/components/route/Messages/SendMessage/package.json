@@ -1,0 +1,5 @@
+{
+  "name": "SendMessage",
+  "private": true,
+  "main": "./SendMessage.js"
+}

@@ -1,0 +1,34 @@
+@import '../../../styles/mixins.less';
+@import '../../../styles/theme.less';
+
+.dashboard__main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  .gradient(linear; @--light-100, @--light-200);
+}
+
+.dashboard__header {
+  display: flex;
+  margin: 3rem;
+}
+
+.dashboard__title {
+  font-weight: 300;
+  font-size: 2.4rem;
+  color: @--dark-700;
+}
+
+.dashboard__content {
+  display: flex;
+  flex: 1 1 auto;
+  background: #fff;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.3rem 0.6rem rgba(36,129,215,0.05), 0 0.2rem 0.3rem rgba(36,129,215,0.04);
+  margin: 0 3rem 2rem 3rem;
+}
+
+.dashboard__tabs {
+  margin: 1.6rem 0rem 0rem 1rem;
+}

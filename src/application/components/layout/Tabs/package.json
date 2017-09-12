@@ -1,0 +1,5 @@
+{
+  "name": "Tabs",
+  "private": true,
+  "main": "./Tabs.js"
+}

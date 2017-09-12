@@ -1,0 +1,39 @@
+@import '../../../../styles/theme.less';
+
+.send-message__form {
+  display: flex;
+  flex-flow: column wrap;
+  flex: 1 1 auto;
+}
+
+.send-message__fields {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.send-message__field {
+  flex: 1 auto;
+  padding: 1rem;
+  margin: 0.5rem;
+  border: 0.1rem solid @--light-200;
+  border-radius: 0.2rem;
+  font-size: 1.6rem;
+  font-weight: 300;
+
+  &--error {
+    border-color: @--error-100;
+  }
+}
+
+.send-message__submit {
+  width: 20%;
+  border: 0;
+  background-color: @--dark-100;
+  border-radius: 0.4rem;
+  color: @--light-000;
+  font-size: 1.6rem;
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}

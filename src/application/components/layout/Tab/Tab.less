@@ -1,0 +1,27 @@
+@import '../../../styles/theme.less';
+
+.tab__item {
+  display: flex;
+}
+
+.tab__link {
+  background: @--light-400;
+  height: 30px;
+  line-height: 32px;
+  padding: 0 15px;
+  border-radius: 50px;
+  min-width: 60px;
+  color: @--dark-700;
+  margin-left: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    background: @--light-000;
+    color: @--dark-100;
+  }
+}
