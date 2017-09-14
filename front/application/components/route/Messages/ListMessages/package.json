@@ -1,5 +1,5 @@
 {
   "name": "ListMessages",
   "private": true,
-  "main": "./ListMessages.js"
+  "main": "./ListMessages.container.js"
 }

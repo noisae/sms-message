@@ -7,7 +7,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src/application')
+    app: path.resolve(__dirname, 'application')
   },
   output: {
     filename: '[name].js',
@@ -16,16 +16,12 @@ module.exports = {
   },
   resolve: {
     modules: [
-      path.resolve(__dirname, 'src/application'),
-      path.resolve(__dirname, 'src/domain'),
-      path.resolve(__dirname, 'src/infra'),
+      path.resolve(__dirname, 'application'),
       'node_modules'
     ],
     alias: {
-      application: path.resolve(__dirname, 'src/application'),
-      components: path.resolve(__dirname, 'src/application/components'),
-      domain: path.resolve(__dirname, 'src/domain'),
-      infra: path.resolve(__dirname, 'src/infra')
+      application: path.resolve(__dirname, 'application'),
+      components: path.resolve(__dirname, 'application/components'),
     },
     descriptionFiles: ['package.json'],
     extensions: ['.js', '.less']
@@ -34,13 +30,13 @@ module.exports = {
   module: {
     rules: [{
       test: /\.less$/,
-      include: [ path.resolve(__dirname, 'src/application')],
+      include: [ path.resolve(__dirname, 'application')],
       exclude: /(node_modules)/,
       use: ['style-loader', 'css-loader', 'less-loader']
     },
     {
       test: /\.js$/,
-      include: path.resolve(__dirname, 'src/application'),
+      include: path.resolve(__dirname, 'application'),
       exclude: /(node_modules)/,
       loader: 'babel-loader',
       options: {
@@ -51,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/application/index.ejs'),
+      template: path.resolve(__dirname, './application/index.ejs'),
       filename: path.resolve(__dirname, './dist/index.html')
     }),
     new FriendlyErrorsWebpackPlugin(),

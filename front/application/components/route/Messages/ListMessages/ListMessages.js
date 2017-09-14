@@ -9,13 +9,7 @@ const bem = bemClassName.bind(null, 'list-messages')
 
 const ListMessages = ({ messageCollection }) => {
 
-  const data = [{
-    key: 1,
-    recipient: 5511998488996,
-    originator: 5511998488996,
-    body: 'Tanner Linsley',
-    createdDatetime: 123456869595
-  }]
+  const data = messageCollection.messages
 
   const columns = [{
     title: 'Recipient',
@@ -30,16 +24,21 @@ const ListMessages = ({ messageCollection }) => {
     key: 'body',
     dataIndex: 'body'
   },{
-    title: 'Date',
-    key: 'createdDatetime',
-    dataIndex: 'createdDatetime'
+    title: 'Created',
+    key: 'created',
+    dataIndex: 'created'
+  },{
+    title: 'Sended',
+    key: 'sended',
+    dataIndex: 'sended'
   }]
 
   return (<ReactTable data={data} columns={columns} className={bem('table')} />)
 }
 
 ListMessages.propTypes = {
-  messageCollection: PropTypes.object
+  messageCollection: PropTypes.object.isRequired,
+  loading: PropTypes.bool
 }
 
 export default ListMessages

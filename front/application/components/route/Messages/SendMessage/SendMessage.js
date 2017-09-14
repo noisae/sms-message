@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import bemClassName from 'bem-classname'
 import ReactTable from 'rc-table'
+import Message from 'application/entities/Message'
 
 import './SendMessage.less'
 
@@ -32,11 +33,19 @@ class SendMessage extends React.Component {
   }
 
   handleSubmit(event) {
+    const { sendMessage } = this.props
     event.preventDefault()
 
     const haveError = this.fieldList.find((field) => this.validateField(field, this.state.fields[field].value))
     if(!haveError) {
-      console.log(this.state)
+      sendMessage(new Message({
+        id: 0,
+        recipient: this.state.fields.to,
+        originator: this.state.fields.from,
+        body: this.state.fields.message,
+        created: new Date(),
+        sended: null
+      }))
     }
   }
 
@@ -76,7 +85,8 @@ class SendMessage extends React.Component {
 }
 
 SendMessage.propTypes = {
-  sendMessage: PropTypes.func
+  sendMessage: PropTypes.func.isRequired,
+  loading: PropTypes.bool
 }
 
 export default SendMessage
