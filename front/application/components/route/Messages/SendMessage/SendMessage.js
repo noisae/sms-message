@@ -10,6 +10,11 @@ const bem = bemClassName.bind(null, 'send-message')
 
 class SendMessage extends React.Component {
 
+  static propTypes = {
+    sendMessage: PropTypes.func.isRequired,
+    loading: PropTypes.bool
+  }
+
   constructor(props) {
     super(props)
 
@@ -39,12 +44,9 @@ class SendMessage extends React.Component {
     const haveError = this.fieldList.find((field) => this.validateField(field, this.state.fields[field].value))
     if(!haveError) {
       sendMessage(new Message({
-        id: 0,
-        recipient: this.state.fields.to,
-        originator: this.state.fields.from,
-        body: this.state.fields.message,
-        created: new Date(),
-        sended: null
+        recipient: this.state.fields.to.value,
+        originator: this.state.fields.from.value,
+        body: this.state.fields.message.value
       }))
     }
   }
@@ -82,11 +84,6 @@ class SendMessage extends React.Component {
     </form>
     )
   }
-}
-
-SendMessage.propTypes = {
-  sendMessage: PropTypes.func.isRequired,
-  loading: PropTypes.bool
 }
 
 export default SendMessage

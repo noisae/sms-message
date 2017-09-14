@@ -6,13 +6,15 @@ const ListMessagesQuery = gql`query ListMessagesQuery {
     id,
     recipient,
     originator,
-    body',
-    createdDatetime
+    body,
+    created,
+    sended,
+    __typename
   }
 }`
 
 const ListMessagesOptions = {
-  options: () => ({ forceFetch: true }),
+  options: () => ({ fetchPolicy: 'network-only' }),
   props ({ ownProps, data: { loading, error } }) {
     return {
       ...ownProps,

@@ -7,12 +7,16 @@ import './Tabs.less'
 
 const bem = bemClassName.bind(null, 'tabs')
 
-const Tabs = ({ tabs }) => {
-  return (<ul className={bem('list')}>{tabs}</ul>)
+class Tabs extends React.Component{
+
+  render() {
+    const { tabs } = this.props
+    return (<ul className={bem('list')}>{tabs}</ul>)
+  }
 }
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.instanceOf(Tab)).isRequired
+  tabs: PropTypes.arrayOf(PropTypes.element).isRequired
 }
 
 export default Tabs

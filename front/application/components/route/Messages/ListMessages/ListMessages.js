@@ -7,38 +7,41 @@ import './ListMessages.less'
 
 const bem = bemClassName.bind(null, 'list-messages')
 
-const ListMessages = ({ messageCollection }) => {
+class ListMessages extends React.Component {
 
-  const data = messageCollection.messages
+  static propTypes = {
+    messageCollection: PropTypes.object.isRequired,
+    loading: PropTypes.bool
+  }
 
-  const columns = [{
-    title: 'Recipient',
-    key: 'recipient',
-    dataIndex: 'recipient'
-  },{
-    title: 'Originator',
-    key: 'originator',
-    dataIndex: 'originator'
-  },{
-    title: 'Body',
-    key: 'body',
-    dataIndex: 'body'
-  },{
-    title: 'Created',
-    key: 'created',
-    dataIndex: 'created'
-  },{
-    title: 'Sended',
-    key: 'sended',
-    dataIndex: 'sended'
-  }]
+  render() {
+    const { messageCollection, loading } = this.props
+    const data = messageCollection && messageCollection.messages.map((message) => message.toJSON())
 
-  return (<ReactTable data={data} columns={columns} className={bem('table')} />)
-}
+    const columns = [{
+      title: 'Recipient',
+      key: 'recipient',
+      dataIndex: 'recipient'
+    },{
+      title: 'Originator',
+      key: 'originator',
+      dataIndex: 'originator'
+    },{
+      title: 'Body',
+      key: 'body',
+      dataIndex: 'body'
+    },{
+      title: 'Created',
+      key: 'created',
+      dataIndex: 'created'
+    },{
+      title: 'Sended',
+      key: 'sended',
+      dataIndex: 'sended'
+    }]
 
-ListMessages.propTypes = {
-  messageCollection: PropTypes.object.isRequired,
-  loading: PropTypes.bool
+    return (<ReactTable data={data} columns={columns} className={bem('table')} />)
+  }
 }
 
 export default ListMessages

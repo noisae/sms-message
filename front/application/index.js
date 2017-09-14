@@ -10,7 +10,7 @@ import 'application/styles/base.less'
 
 const apolloClient = new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'http://',
+    uri: 'http://localhost:3000/graphql',
   }),
 })
 

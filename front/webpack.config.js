@@ -60,8 +60,8 @@ module.exports = {
     hot: true,
     inline: true,
     historyApiFallback: true,
-    port: 3030,
-    host: 'localhost',
+    port: process.env.PORT,
+    host: process.env.HOST,
     overlay: {
       errors: true,
       warnings: false

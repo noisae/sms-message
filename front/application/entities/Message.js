@@ -1,11 +1,11 @@
 import { Entity, validatorAdapter } from 'speck-entity'
-import Joi from 'joi'
+import Joi from 'joi-browser'
 const adapter = validatorAdapter('joi', Joi)
 
 class Message extends Entity {
 
   static SCHEMA = {
-    id: adapter(Joi.number()),
+    id: adapter(Joi.string().guid()),
     recipient: adapter(Joi.number()),
     originator: adapter(Joi.number()),
     body: adapter(Joi.string()),
@@ -19,7 +19,7 @@ class Message extends Entity {
 
         return value
       }
-    }
+    },
     sended: {
       validator: adapter(Joi.object().type(Date)),
       type: Date,

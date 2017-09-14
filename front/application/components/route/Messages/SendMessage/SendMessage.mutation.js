@@ -1,12 +1,12 @@
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
-const SendMessageMutation = gql`mutation SendMessageMutation($message: Message) {
-  sendMessage {
+const SendMessageMutation = gql`mutation SendMessageMutation($message: MessageInputType) {
+  sendMessage(message: $message) {
     id,
     recipient,
     originator,
-    body',
+    body,
     created,
     sended
   }

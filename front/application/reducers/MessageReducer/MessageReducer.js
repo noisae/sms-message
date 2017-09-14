@@ -3,7 +3,7 @@ import ReduceResolver from '../ReduceResolver'
 import ListMessagesReducer from './ListMessagesReducer'
 import MessageCollection from 'application/entities/MessageCollection'
 
-const defaultState = {
+export const defaultState = {
   messageCollection: new MessageCollection({ messages: [] })
 }
 

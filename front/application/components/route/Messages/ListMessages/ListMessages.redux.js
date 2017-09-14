@@ -1,8 +1,10 @@
 import { connect } from 'react-redux'
 
-const mapStateToProps = ({ messageCollection, ownProps) => ({
-  ...ownProps,
-  messageCollection
-})
+const mapStateToProps = ({ messageReducer: { messageCollection } , ownProps }) => {
+  return {
+    ...ownProps,
+    messageCollection
+  }
+}
 
 export default connect(mapStateToProps)

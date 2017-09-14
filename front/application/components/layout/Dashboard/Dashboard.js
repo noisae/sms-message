@@ -8,7 +8,6 @@ import './Dashboard.less'
 const bem = bemClassName.bind(null, 'dashboard')
 
 const Dashboard = ({ title, children, tabs }) => {
-
   return (
     <main className={bem('main')}>
       <header className={bem('header')}>
@@ -26,7 +25,7 @@ const Dashboard = ({ title, children, tabs }) => {
 Dashboard.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.any.isRequired,
-  tabs: PropTypes.instanceOf(Tabs)
+  tabs: PropTypes.element
 }
 
 export default Dashboard

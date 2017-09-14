@@ -4,5 +4,5 @@ import MessageReducer from 'application/reducers/MessageReducer'
 
 export default {
   routing: routerReducer,
-  projectBillingInfo: MessageReducer
+  messageReducer: MessageReducer
 }
