@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import bemClassName from 'bem-classname'
 import ReactTable from 'rc-table'
+import Loader from 'components/layout/Loader'
 
 import './ListMessages.less'
 
@@ -15,6 +16,10 @@ class ListMessages extends React.Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return (<Loader />)
+    }
+
     const { messageCollection, loading } = this.props
     const data = messageCollection && messageCollection.messages.map((message) => message.toJSON())
 
@@ -40,7 +45,7 @@ class ListMessages extends React.Component {
       dataIndex: 'sended'
     }]
 
-    return (<ReactTable data={data} columns={columns} className={bem('table')} />)
+    return (<ReactTable data={data.reverse()} columns={columns} className={bem('table')} />)
   }
 }
 

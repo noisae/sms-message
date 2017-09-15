@@ -41,6 +41,7 @@
     "joi": "^10.6.0",
     "joi-browser": "^10.6.1",
     "prop-types": "^15.5.10",
+    "pusher-js": "^4.1.0",
     "rc-table": "^5.6.7",
     "react": "^15.6.1",
     "react-apollo": "^1.4.15",
@@ -50,6 +51,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
-    "speck-entity": "^0.1.9"
+    "speck-entity": "^0.1.9",
+    "uuid": "^3.1.0"
   }
 }

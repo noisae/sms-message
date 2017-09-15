@@ -1,6 +1,7 @@
 import ReduceResolver from '../ReduceResolver'
 
 import ListMessagesReducer from './ListMessagesReducer'
+import ReceiveMessageReducer from './ReceiveMessageReducer'
 import MessageCollection from 'application/entities/MessageCollection'
 
 export const defaultState = {
@@ -8,7 +9,8 @@ export const defaultState = {
 }
 
 const resolvers = [
-  ListMessagesReducer
+  ListMessagesReducer,
+  ReceiveMessageReducer
 ]
 
 export default ReduceResolver(defaultState, resolvers)

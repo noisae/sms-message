@@ -9,7 +9,7 @@
 .send-message__fields {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: right;
 }
 
 .send-message__field {
@@ -36,4 +36,37 @@
   padding: 0.6rem 1.2rem;
   margin: 0.5rem;
   cursor: pointer;
+}
+
+
+.send-message__success{
+    padding: 1.2rem;
+    font-size: 1.3rem;
+    color: @--success-100;
+    -webkit-animation: 5s ease 0s normal forwards 1 FadeInFadeOut;
+    animation: 5s ease 0s normal forwards 1 FadeInFadeOut;
+}
+
+@-moz-keyframes "FadeInFadeOut" {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0;}
+}
+
+@-webkit-keyframes "FadeInFadeOut" {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0;}
+}
+
+@-o-keyframes "FadeInFadeOut" {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0;}
+}
+
+@keyframes "FadeInFadeOut" {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0;}
 }

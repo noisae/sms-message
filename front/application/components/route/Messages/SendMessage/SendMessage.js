@@ -12,12 +12,20 @@ class SendMessage extends React.Component {
 
   static propTypes = {
     sendMessage: PropTypes.func.isRequired,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    data: PropTypes.object,
   }
 
   constructor(props) {
     super(props)
 
+    this.clearFields()
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  clearFields() {
     const defaultField = {
       value: '',
       error: false
@@ -32,9 +40,6 @@ class SendMessage extends React.Component {
       lastValue[field] = Object.assign({}, defaultField)
       return lastValue
     }, {})
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
@@ -48,6 +53,8 @@ class SendMessage extends React.Component {
         originator: this.state.fields.from.value,
         body: this.state.fields.message.value
       }))
+      this.clearFields()
+      this.setState({ fields: this.state.fields, sended: true })
     }
   }
 
@@ -73,15 +80,25 @@ class SendMessage extends React.Component {
 
   render() {
     const { from, to, message } = this.state.fields
+    const { sended } = this.state
+
+    let successMessage
+    if (sended) {
+      successMessage = (<div className={bem('success')}>Sended!</div>)
+    }
+
     return (
       <form className={bem('form')} onSubmit={this.handleSubmit}>
         <div className={bem('fields')}>
-          <input name='from' className={bem('field', { error: from.error })} type="text" placeholder="Originator" onChange={this.handleChange.bind(this)} />
-          <input name='to' className={bem('field', { error: to.error })} type="text" placeholder="Recipient" onChange={this.handleChange.bind(this)}  />
+          <input value={from.value} name='from' className={bem('field', { error: from.error })} type="text" placeholder="Originator" onChange={this.handleChange.bind(this)} />
+          <input value={to.value} name='to' className={bem('field', { error: to.error })} type="text" placeholder="Recipient" onChange={this.handleChange.bind(this)}  />
         </div>
-        <textarea name='message' className={bem('field', { error: message.error })} type="text" placeholder="Message" onChange={this.handleChange.bind(this)}></textarea>
-      <input className={bem('submit')} type="submit" value="Send" />
-    </form>
+        <textarea value={message.value} name='message' className={bem('field', { error: message.error })} type="text" placeholder="Message" onChange={this.handleChange.bind(this)}></textarea>
+        <div className={bem('fields')}>
+          <input className={bem('submit')} type="submit" value="Send" />
+          {successMessage}
+        </div>
+      </form>
     )
   }
 }

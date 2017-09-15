@@ -1,0 +1,5 @@
+{
+  "name": "Message graphQL definitions",
+  "private": true,
+  "main": "./message.definitions.js"
+}
