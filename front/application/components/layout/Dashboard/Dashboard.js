@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import bemClassName from 'bem-classname'
-import Tabs from 'components/layout/Tabs'
 
 import './Dashboard.less'
 
@@ -19,7 +18,6 @@ const Dashboard = ({ title, children, tabs }) => {
       <content className={bem('content')}>{children}</content>
     </main>
   )
-
 }
 
 Dashboard.propTypes = {

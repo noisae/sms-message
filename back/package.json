@@ -4,7 +4,7 @@
   "main": "Application/server.js",
   "scripts": {
     "start": "NODE_ENV=development NODE_PATH=./ nodemon Application/server.js",
-    "start:server": "NODE_ENV=development NODE_PATH=./ lt -s smsmessage482948 -p 3000",
+    "start:server": "lt -s smsmessage482948 -p 3000",
     "debug": "NODE_ENV=development NODE_PATH=./ nodemon --inspect Application/server.js",
     "test": "TZ=utc NODE_ENV=test NODE_PATH=./ mocha \"Domain/**/*.test.js\" \"Infra/**/*.test.js\" --colors --reporter spec",
     "test:watch": "yarn test -- --watch --reporter min",

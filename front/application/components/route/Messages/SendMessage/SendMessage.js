@@ -12,8 +12,7 @@ class SendMessage extends React.Component {
 
   static propTypes = {
     sendMessage: PropTypes.func.isRequired,
-    loading: PropTypes.bool,
-    data: PropTypes.object,
+    loading: PropTypes.bool
   }
 
   constructor(props) {
@@ -74,7 +73,7 @@ class SendMessage extends React.Component {
       fields[fieldName].error = true;
     }
 
-    this.setState({ fields })
+    this.setState({ fields, sended: false })
     return fields[fieldName].error
   }
 

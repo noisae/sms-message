@@ -21,8 +21,7 @@ class Tabs extends React.Component {
 
 Tabs.propTypes = {
   title: PropTypes.string.isRequired,
-  action: PropTypes.string.isRequired,
-  key: PropTypes.string
+  action: PropTypes.string.isRequired
 }
 
 export default Tabs
