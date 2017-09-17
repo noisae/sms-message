@@ -4,7 +4,7 @@ services:
     build:
       context: ./back
       dockerfile: Dockerfile-Node
-    command: "bash -c 'yarn && yarn db:migrate && yarn start > /tmp/server.log 2>&1 & yarn start:server > /tmp/localtunnel.log  2>&1 & echo 'teste' && tail -f /tmp/localtunnel.log /tmp/server.log'"
+    command: "bash -c 'yarn && yarn db:migrate && yarn start > /tmp/server.log 2>&1 & yarn start:server > /tmp/localtunnel.log  2>&1 && tail -f /tmp/localtunnel.log /tmp/server.log'"
     volumes:
       - ./back:/project
     links:

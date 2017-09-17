@@ -23,6 +23,9 @@ $ docker-compose up
 
 ## Backend
 The Backend application structure are based on Architeture Layer Idea explained by Robert Martin on "[Ruby Midwest 2011 - Keynote: Architecture the Lost Years by Robert Martin](https://www.youtube.com/watch?v=WpkDN78P884)".
+The application api use a GraphQL endpoint to Frontend, and a webhook to receive MessageBird messages.
+
+Obs: Localtunnel is used to expose the server on port 3000. If something wrong happen, confirm if localtunnel is working on your system :P
 
 ### Tests
 ```sh

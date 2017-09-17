@@ -9,11 +9,8 @@ const history = createBrowserHistory()
 export default () => (
   <Router history={history}>
     <Switch>
-      {Messages}
+      <Messages />
       <Redirect from="*" to="/messages" />
     </Switch>
   </Router>
 )
-
-// <Route path="send-message" component={sendMessage} />
-// <IndexRoute component={listMessages} />
